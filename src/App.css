@@ -1,0 +1,16 @@
+.tip-card {
+    border: 1px solid #ccc;
+    padding: 16px;
+    margin: 16px;
+    text-align: left;
+  }
+  
+  .tips-slider {
+    display: flex;
+    align-items: center;
+  }
+  
+  button {
+    margin: 0 8px;
+  }
+ 
