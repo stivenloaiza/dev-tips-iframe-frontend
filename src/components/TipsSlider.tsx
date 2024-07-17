@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import TipCard from './TipCard';
+import '../App.css'; // Asegúrate de importar los estilos CSS adecuados
 
 interface Tip {
   _id: string;
@@ -34,9 +35,13 @@ const TipsSlider: React.FC<TipsSliderProps> = ({ tips }) => {
 
   return (
     <div className="tips-slider">
-      <button onClick={prevTip}>Previous</button>
-      <TipCard {...tips[currentTipIndex]} />
-      <button onClick={nextTip}>Next</button>
+      <div className="slider-buttons">
+        <button onClick={prevTip}>Previous</button>
+        <button onClick={nextTip}>Next</button>
+      </div>
+      <div className="tip-card-container">
+        <TipCard {...tips[currentTipIndex]} />
+      </div>
     </div>
   );
 };

@@ -1,16 +1,119 @@
+/* App.css */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html, #root {
+  height: 100%;
+  width: 100%;
+  font-family: Arial, sans-serif;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background-color: #f5f5f5;
+}
+
+.tips-slider {
+  position: relative;
+  width: 100%; /* El slider ocupará el 100% del contenedor */
+  max-width: 1200px; /* Ancho máximo del slider */
+  margin: 16px auto; /* Centrar el slider horizontalmente */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* Ocultar cualquier contenido que se desborde horizontalmente */
+}
+
+.tip-card-container {
+  display: flex;
+  justify-content: center; /* Centrar horizontalmente */
+  width: 100%;
+}
+
 .tip-card {
-    border: 1px solid #ccc;
-    padding: 16px;
-    margin: 16px;
-    text-align: left;
+  border: 1px solid #ccc;
+  padding: 16px;
+  margin: 16px;
+  border-radius: 8px;
+  color: #333;
+  width: 80%; /* Ocupar el 80% del contenedor del slider */
+  height: 250px; /* Altura fija de la tarjeta */
+  overflow-y: auto; /* Manejar desbordamiento vertical */
+  flex: 0 0 auto;
+  transition: transform 0.3s ease-in-out;
+}
+
+button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  background-color: #007acc;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #005fa3;
+}
+
+.slider-buttons {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding: 0 16px; /* Espacio a los lados para los botones */
+}
+
+.slider-buttons button {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10; /* Asegura que los botones estén sobre las tarjetas */
+}
+
+.slider-buttons .left {
+  left: 0;
+}
+
+.slider-buttons .right {
+  right: 0;
+}
+
+.slider-buttons button:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+@media (max-width: 768px) {
+  .tip-card {
+    width: 90%; /* Ancho fijo para pantallas más pequeñas */
+    height: 200px; /* Altura fija para pantallas más pequeñas */
   }
-  
-  .tips-slider {
-    display: flex;
-    align-items: center;
-  }
-  
+
   button {
-    margin: 0 8px;
+    padding: 6px 12px;
   }
- 
+}
+
+@media (max-width: 480px) {
+  .tip-card {
+    width: 95%; /* Ancho fijo para pantallas más pequeñas */
+    height: 150px; /* Altura fija para pantallas más pequeñas */
+  }
+
+  button {
+    padding: 4px 8px;
+  }
+}

@@ -11,7 +11,7 @@ const tipsData = [
     "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Sentencias/try...catch",
     "available": true,
     "level": "junior",
-    "technology": "javascript",
+    "technology": "java",
     "subtechnology": "error handling",
     "lang": "spanish",
     "createdAt": "2024-07-12T01:38:45.647Z",
