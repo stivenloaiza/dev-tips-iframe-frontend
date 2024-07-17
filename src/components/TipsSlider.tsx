@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import TipCard from './TipCard';
-import '../App.css'; // Asegúrate de importar los estilos CSS adecuados
+import '../App.css';
 
 interface Tip {
   _id: string;

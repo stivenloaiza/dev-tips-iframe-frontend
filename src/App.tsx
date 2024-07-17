@@ -7,11 +7,11 @@ const tipsData = [
   {
     "_id": "66908925195c5e700c1563",
     "title": "Manejo de errores en JavaScript",
-    "body": "Usa try...catch para manejar errores y evitar que tu aplicación se detenga abruptamente.",
+    "body": "Usa try...catch para manejar errores y evitar que tu aplicación se detenga abruptamente. ",
     "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Sentencias/try...catch",
     "available": true,
     "level": "junior",
-    "technology": "java",
+    "technology": "javascript",
     "subtechnology": "error handling",
     "lang": "spanish",
     "createdAt": "2024-07-12T01:38:45.647Z",
@@ -26,7 +26,7 @@ const tipsData = [
     "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Sentencias/async_function",
     "available": true,
     "level": "junior",
-    "technology": "javascript",
+    "technology": "python",
     "subtechnology": "async/await",
     "lang": "english",
     "createdAt": "2024-07-12T01:38:45.647Z",
@@ -40,7 +40,7 @@ const App: React.FC = () => {
   useEffect(() => {
     axios.post('https://example.com/api/endpoint', {}, {
       headers: {
-        'x-apikey': '123'
+        'x-api-key': '123'
       }
     })
     .then(response => {
