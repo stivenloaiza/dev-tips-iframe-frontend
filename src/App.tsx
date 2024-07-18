@@ -1,35 +1,106 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useEffect } from 'react';
+import axios from 'axios';
+import TipsSlider from './components/TipsSlider';
+import './App.css';
 
-function App() {
-  const [count, setCount] = useState(0)
+const tipsData = [
+  {
+    "_id": "66908925195c5e700c1563",
+    "title": "Manejo de errores en JavaScript",
+    "body": "Usa try...catch para manejar errores y evitar que tu aplicación se detenga abruptamente. ",
+    "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Sentencias/try...catch",
+    "available": true,
+    "level": "junior",
+    "technology": "javascript",
+    "subtechnology": "error handling",
+    "lang": "spanish",
+    "createdAt": "2024-07-12T01:38:45.647Z",
+    "createBy": "admin",
+    "updatedAt": "2024-07-12T01:38:45.647Z",
+    "deletedAt": null
+  },
+  {
+    "_id": "66908925195c5e700c1564",
+    "title": "Async/Await en JavaScript",
+    "body": "Usa async/await para manejar promesas de manera más sencilla y legible.",
+    "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Sentencias/async_function",
+    "available": true,
+    "level": "junior",
+    "technology": "c#",
+    "subtechnology": "async/await",
+    "lang": "english",
+    "createdAt": "2024-07-12T01:38:45.647Z",
+    "createBy": "admin",
+    "updatedAt": "2024-07-12T01:38:45.647Z",
+    "deletedAt": null
+  },
+  {
+    "_id": "66908925195c5e700c1564",
+    "title": "Async/Await en JavaScript",
+    "body": "Usa async/await para manejar promesas de manera más sencilla y legible.",
+    "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Sentencias/async_function",
+    "available": true,
+    "level": "junior",
+    "technology": "python",
+    "subtechnology": "async/await",
+    "lang": "english",
+    "createdAt": "2024-07-12T01:38:45.647Z",
+    "createBy": "admin",
+    "updatedAt": "2024-07-12T01:38:45.647Z",
+    "deletedAt": null
+  },
+  {
+    "_id": "66908925195c5e700c1564",
+    "title": "Async/Await en JavaScript",
+    "body": "Usa async/await para manejar promesas de manera más sencilla y legible.",
+    "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Sentencias/async_function",
+    "available": true,
+    "level": "junior",
+    "technology": "typescript",
+    "subtechnology": "async/await",
+    "lang": "english",
+    "createdAt": "2024-07-12T01:38:45.647Z",
+    "createBy": "admin",
+    "updatedAt": "2024-07-12T01:38:45.647Z",
+    "deletedAt": null
+  },
+  {
+    "_id": "66908925195c5e700c1564",
+    "title": "Async/Await en JavaScript",
+    "body": "Usa async/await para manejar promesas de manera más sencilla y legible.",
+    "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Sentencias/async_function",
+    "available": true,
+    "level": "junior",
+    "technology": "java",
+    "subtechnology": "async/await",
+    "lang": "english",
+    "createdAt": "2024-07-12T01:38:45.647Z",
+    "createBy": "admin",
+    "updatedAt": "2024-07-12T01:38:45.647Z",
+    "deletedAt": null
+  }
+];
+
+const App: React.FC = () => {
+  useEffect(() => {
+    axios.post('https://example.com/api/endpoint', {}, {
+      headers: {
+        'x-api-key': '123'
+      }
+    })
+    .then(response => {
+      console.log(response.data);
+    })
+    .catch(error => {
+      console.error('There was an error!', error);
+    });
+  }, []);
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <div className="App">
+      <TipsSlider tips={tipsData} />
+    </div>
+  );
+};
 
-export default App
+export default App;
