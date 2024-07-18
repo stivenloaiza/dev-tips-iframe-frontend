@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import TipCard from './TipCard';
+import { SlArrowLeft, SlArrowRight } from "react-icons/sl";
 import '../App.css';
 
 interface Tip {
@@ -36,8 +37,8 @@ const TipsSlider: React.FC<TipsSliderProps> = ({ tips }) => {
   return (
     <div className="tips-slider">
       <div className="slider-buttons">
-        <button onClick={prevTip}>Previous</button>
-        <button onClick={nextTip}>Next</button>
+        <button onClick={prevTip}><SlArrowLeft style={{ fontSize: '30px', color: 'white' }}/></button>
+        <button onClick={nextTip}><SlArrowRight style={{ fontSize: '30px', color: 'white' }}/></button>
       </div>
       <div className="tip-card-container">
         <TipCard {...tips[currentTipIndex]} />
