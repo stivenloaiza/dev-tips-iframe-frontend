@@ -1,106 +1,44 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import { BrowserRouter as Router, Routes, Route, useParams } from 'react-router-dom';
 import axios from 'axios';
 import TipsSlider from './components/TipsSlider';
-import './App.css';
 
-const tipsData = [
-  {
-    "_id": "66908925195c5e700c1563",
-    "title": "Manejo de errores en JavaScript",
-    "body": "Usa try...catch para manejar errores y evitar que tu aplicación se detenga abruptamente. ",
-    "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Sentencias/try...catch",
-    "available": true,
-    "level": "junior",
-    "technology": "javascript",
-    "subtechnology": "error handling",
-    "lang": "spanish",
-    "createdAt": "2024-07-12T01:38:45.647Z",
-    "createBy": "admin",
-    "updatedAt": "2024-07-12T01:38:45.647Z",
-    "deletedAt": null
-  },
-  {
-    "_id": "66908925195c5e700c1564",
-    "title": "Async/Await en JavaScript",
-    "body": "Usa async/await para manejar promesas de manera más sencilla y legible.",
-    "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Sentencias/async_function",
-    "available": true,
-    "level": "junior",
-    "technology": "c#",
-    "subtechnology": "async/await",
-    "lang": "english",
-    "createdAt": "2024-07-12T01:38:45.647Z",
-    "createBy": "admin",
-    "updatedAt": "2024-07-12T01:38:45.647Z",
-    "deletedAt": null
-  },
-  {
-    "_id": "66908925195c5e700c1564",
-    "title": "Async/Await en JavaScript",
-    "body": "Usa async/await para manejar promesas de manera más sencilla y legible.",
-    "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Sentencias/async_function",
-    "available": true,
-    "level": "junior",
-    "technology": "python",
-    "subtechnology": "async/await",
-    "lang": "english",
-    "createdAt": "2024-07-12T01:38:45.647Z",
-    "createBy": "admin",
-    "updatedAt": "2024-07-12T01:38:45.647Z",
-    "deletedAt": null
-  },
-  {
-    "_id": "66908925195c5e700c1564",
-    "title": "Async/Await en JavaScript",
-    "body": "Usa async/await para manejar promesas de manera más sencilla y legible.",
-    "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Sentencias/async_function",
-    "available": true,
-    "level": "junior",
-    "technology": "typescript",
-    "subtechnology": "async/await",
-    "lang": "english",
-    "createdAt": "2024-07-12T01:38:45.647Z",
-    "createBy": "admin",
-    "updatedAt": "2024-07-12T01:38:45.647Z",
-    "deletedAt": null
-  },
-  {
-    "_id": "66908925195c5e700c1564",
-    "title": "Async/Await en JavaScript",
-    "body": "Usa async/await para manejar promesas de manera más sencilla y legible.",
-    "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Sentencias/async_function",
-    "available": true,
-    "level": "junior",
-    "technology": "java",
-    "subtechnology": "async/await",
-    "lang": "english",
-    "createdAt": "2024-07-12T01:38:45.647Z",
-    "createBy": "admin",
-    "updatedAt": "2024-07-12T01:38:45.647Z",
-    "deletedAt": null
-  }
-];
+const DataFetcher: React.FC = () => {
+  const { apikeyUser } = useParams<{ apikeyUser: string }>();
+  const [tips, setTips] = useState([]);
 
-const App: React.FC = () => {
   useEffect(() => {
-    axios.post('https://example.com/api/endpoint', {}, {
-      headers: {
-        'x-api-key': '123'
-      }
-    })
-    .then(response => {
-      console.log(response.data);
-    })
-    .catch(error => {
-      console.error('There was an error!', error);
-    });
-  }, []);
+    if (apikeyUser) {
+      axios.post(`https://dev-tips-users-backend.onrender.com/v1/api/iframes/getApiKey/gi${apikeyUser}`, {}, {
+        headers: {
+          'x-api-key': 'rk0zdvhagd0kk0yhjr93vkbd2mekb0'
+        }
+      })
+      .then(response => {
+        setTips(response.data);
+      })
+      .catch(error => {
+        console.error('There was an error!', error);
+      });
+    }
+  }, [apikeyUser]);
 
   return (
     <div className="App">
-      <TipsSlider tips={tipsData} />
+      <TipsSlider tips={tips} />
     </div>
   );
 };
 
+const App: React.FC = () => {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/:apikeyUser" element={<DataFetcher />} />
+      </Routes>
+    </Router>
+  );
+};
+
 export default App;
+
