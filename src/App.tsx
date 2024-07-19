@@ -1,7 +1,9 @@
+
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, useParams } from 'react-router-dom';
 import axios from 'axios';
 import TipsSlider from './components/TipsSlider';
+import './App.css';
 
 const DataFetcher: React.FC = () => {
   const { apikeyUser } = useParams<{ apikeyUser: string }>();
@@ -32,6 +34,7 @@ const DataFetcher: React.FC = () => {
 
 const App: React.FC = () => {
   return (
+
     <Router>
       <Routes>
         <Route path="/:apikeyUser" element={<DataFetcher />} />
@@ -41,4 +44,5 @@ const App: React.FC = () => {
 };
 
 export default App;
+
 
