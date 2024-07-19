@@ -37,9 +37,11 @@ const technologyStyles: { [key: string]: React.CSSProperties } = {
   },
 };
 
-const TipCard: React.FC<TipCardProps> = ({ title, technology, subtechnology, body, link, lang }) => {
+const TipCard: React.FC<TipCardProps> = ({ title, technology = '', subtechnology, body, link, lang }) => {
+  const technologyKey = technology ? technology.toLowerCase() : '';
+
   const cardStyle: React.CSSProperties = {
-    ...technologyStyles[technology.toLowerCase()],
+    ...technologyStyles[technologyKey],
     padding: '16px',
     borderRadius: '8px',
     margin: '16px',
