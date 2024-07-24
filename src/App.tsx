@@ -8,7 +8,7 @@ const DataFetcher: React.FC = () => {
   const { apikeyUser } = useParams<{ apikeyUser: string }>();
   const [tips, setTips] = useState<any[]>([]);
 
-  const fechTips = () => {
+  const fetchTips = () => {
     if (apikeyUser) {
       axios.get(`https://dev-tips-iframe-backend.onrender.com/v1/api/iframe/iframeForFront/${apikeyUser}`, {
         headers: {
