@@ -27,17 +27,17 @@ const TipsSlider: React.FC<TipsSliderProps> = ({ tips }) => {
   const [currentTipIndex, setCurrentTipIndex] = useState(0);
 
 
- // Función para pasar al siguiente tip
+
   const nextTip = () => {
     setCurrentTipIndex((currentTipIndex + 1) % tips.length);
   };
 
-  // Función para volver al tip anterior
+
   const prevTip = () => {
     setCurrentTipIndex((currentTipIndex - 1 + tips.length) % tips.length);
   };
 
-  // useEffect para cambiar de tip automáticamente cada 8 segundos
+
   useEffect(() => {
     const intervalId = setInterval(() => {
       nextTip();
