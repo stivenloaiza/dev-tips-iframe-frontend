@@ -20,21 +20,20 @@ body, html, #root {
 }
 
 
-
 .tips-slider {
   position: relative;
-  width: 100%; 
-  max-width: 1200px; 
-  margin: 16px auto; 
+  width: 100%;
+  max-width: 1200px;
+  margin: 16px auto;
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden; 
+  overflow: hidden;
 }
 
 .tip-card-container {
   display: flex;
-  justify-content: center; 
+  justify-content: center;
   width: 100%;
 }
 
@@ -44,9 +43,9 @@ body, html, #root {
   margin: 16px;
   border-radius: 8px;
   color: #333;
-  width: 80%; 
-  height: 250px; 
-  overflow-y: auto; 
+  width: 80%;
+  height: 250px;
+  overflow-y: auto;
   flex: 0 0 auto;
   transition: transform 0.3s ease-in-out;
 }
@@ -64,6 +63,7 @@ button:hover {
   background-color: #005fa3;
 }
 
+
 .slider-buttons {
   position: absolute;
   top: 50%;
@@ -71,7 +71,7 @@ button:hover {
   display: flex;
   width: 100%;
   justify-content: space-between;
-  padding: 0 16px; 
+  padding: 0 16px;
 }
 
 .slider-buttons button {
@@ -80,7 +80,7 @@ button:hover {
   padding: 10px;
   border: none;
   cursor: pointer;
-  z-index: 10; 
+  z-index: 10;
 }
 
 .slider-buttons .left {
@@ -95,6 +95,7 @@ button:hover {
   background-color: rgba(0, 0, 0, 0.8);
 }
 
+
 @media (max-width: 768px) {
   .tip-card {
     width: 90%;
@@ -108,11 +109,21 @@ button:hover {
 
 @media (max-width: 480px) {
   .tip-card {
-    width: 95%; 
-    height: 150px; 
+    width: 95%;
+    height: 150px;
   }
 
   button {
     padding: 4px 8px;
+  }
+}
+
+@media (max-width: 320px) {
+  .slider-buttons button {
+    opacity: 0; 
+  }
+
+  .tip-card {
+    font-size: 14px;
   }
 }
