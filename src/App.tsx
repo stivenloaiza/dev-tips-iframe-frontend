@@ -10,7 +10,7 @@ const DataFetcher: React.FC = () => {
 
   useEffect(() => {
     if (apikeyUser) {
-      axios.get(`http://localhost:4000/v1/api/iframe/iframeForFront/${apikeyUser}`, {
+      axios.get(`https://dev-tips-iframe-backend.onrender.com/v1/api/iframe/iframeForFront/${apikeyUser}`, {
         headers: {
           'x-api-key': 'rk0zdvhagd0kk0yhjr93vkbd2mekb0',
         },
