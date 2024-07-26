@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import TipCard from './TipCard';
 import { SlArrowLeft, SlArrowRight } from "react-icons/sl";
 import '../App.css';
@@ -36,16 +36,7 @@ const TipsSlider: React.FC<TipsSliderProps> = ({ tips }) => {
   const prevTip = () => {
     setCurrentTipIndex((currentTipIndex - 1 + tips.length) % tips.length);
   };
-
-
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      nextTip();
-    }, 8000); // 8000 ms = 8 seconds
-
-    return () => clearInterval(intervalId); 
-  }, [currentTipIndex, tips.length]); 
-
+  
   return (
 
       <div className="tips-slider">
