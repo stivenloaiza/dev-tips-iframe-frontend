@@ -8,7 +8,7 @@ const DataFetcher: React.FC = () => {
   const { apikeyUser } = useParams<{ apikeyUser: string }>();
   const [tips, setTips] = useState<any[]>([]);
 
-  useEffect(() => {
+  const fetchTips = () => {
     if (apikeyUser) {
       axios.get(`https://dev-tips-iframe-backend.onrender.com/v1/api/iframe/iframeForFront/${apikeyUser}`, {
         headers: {
@@ -27,6 +27,15 @@ const DataFetcher: React.FC = () => {
         console.error('There was an error!', error);
       });
     }
+  }; 
+  useEffect(() =>{
+    fetchTips();
+
+    const interval = setInterval(() =>{
+      fetchTips();
+    },30000);
+
+    return () => clearInterval(interval);
   }, [apikeyUser]);
   
  
